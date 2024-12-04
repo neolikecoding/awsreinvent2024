@@ -1,0 +1,59 @@
+Beginning AutoGluon training...
+AutoGluon will save models to '/home/ec2-user/SageMaker/awsreinvent2024/Session-OPN302/2024-reinvent/timeseries/AutogluonModels/ag-20241204_004109'
+=================== System Info ===================
+AutoGluon Version:  1.2
+Python Version:     3.10.15
+Operating System:   Linux
+Platform Machine:   x86_64
+Platform Version:   #1 SMP Wed Oct 23 17:17:00 UTC 2024
+CPU Count:          16
+GPU Count:          0
+Memory Avail:       53.71 GB / 61.79 GB (86.9%)
+Disk Space Avail:   74.11 GB / 78.56 GB (94.3%)
+===================================================
+Setting presets to: bolt_small
+
+Fitting with arguments:
+{'enable_ensemble': True,
+ 'eval_metric': WQL,
+ 'hyperparameters': {'Chronos': {'model_path': 'bolt_small'}},
+ 'known_covariates_names': [],
+ 'num_val_windows': 1,
+ 'prediction_length': 4,
+ 'quantile_levels': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+ 'random_seed': 123,
+ 'refit_every_n_windows': 1,
+ 'refit_full': False,
+ 'skip_model_selection': True,
+ 'target': 'unit_sales',
+ 'verbosity': 2}
+
+Inferred time series frequency: 'W-MON'
+Provided train_data has 8613 rows (NaN fraction=6.8%), 319 time series. Median time series length is 27 (min=27, max=27). 
+
+Provided data contains following columns:
+	target: 'unit_sales'
+	past_covariates:
+		categorical:        []
+		continuous (float): ['scaled_price', 'promotion_email', 'promotion_homepage']
+	static_features:
+		categorical:        ['product_code', 'product_category', 'location_code']
+		continuous (float): []
+
+AutoGluon will ignore following non-numeric/non-informative columns:
+	ignored static_features: ['product_subcategory']
+
+To learn how to fix incorrectly inferred types, please see documentation for TimeSeriesPredictor.fit
+
+AutoGluon will gauge predictive performance using evaluation metric: 'WQL'
+	This metric's sign has been flipped to adhere to being higher_is_better. The metric score can be multiplied by -1 to get the metric value.
+===================================================
+
+Starting training. Start time is 2024-12-04 00:41:10
+Models that will be trained: ['Chronos[bolt_small]']
+Training timeseries model Chronos[bolt_small]. 
+	0.08    s     = Training runtime
+Training complete. Models trained: ['Chronos[bolt_small]']
+Total runtime: 0.09 s
+Best model: Chronos[bolt_small]
+Model not specified in predict, will default to the model with the best validation score: Chronos[bolt_small]
